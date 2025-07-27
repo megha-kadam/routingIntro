@@ -1,1 +1,38 @@
-<p>users works!</p>
+<div class="row">
+    <div class="col-12 text-right">
+        <button class="btn btn-sm btn-primary"
+        routerLink="/users/addUser">Add User</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <app-back-btn></app-back-btn>
+        <ul class="list-group">
+
+            <!-- relative routing path -->
+            <!-- <li 
+            [routerLink]="user.userId"
+            class="list-group-item" *ngFor="let user of usersArr">
+                {{user.userName}}
+            </li> -->
+
+            <!-- //absolute routing path -->
+            <!-- <li 
+            [routerLink]="['/users', user.userId]"
+            class="list-group-item" *ngFor="let user of usersArr">
+                {{user.userName}}
+            </li> -->
+
+
+            <!-- string interpolation -->
+
+             <li 
+            routerLink="{{user.userId}}"
+            class="list-group-item" *ngFor="let user of usersArr">
+                {{user.userName}}
+            </li>
+        </ul>
+    </div>
+
+</div>

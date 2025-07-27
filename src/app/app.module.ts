@@ -9,6 +9,13 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { FairsDashboardComponent } from './shared/components/fairs-dashboard/fairs-dashboard.component';
 import { AppRoutingModule } from './shared/app-routing.module';
 import { RouterModule } from '@angular/router';
+import { UserDetailsComponent } from './shared/components/user-details/user-details.component';
+import { UserFormComponent } from './shared/components/user-form/user-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material/material.module';
+import { GetConfirmComponent } from './shared/components/get-confirm/get-confirm.component';
+import { BackBtnComponent } from './shared/components/back-btn/back-btn.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +24,20 @@ import { RouterModule } from '@angular/router';
     UsersComponent,
     ProductDashboardComponent,
     HomeComponent,
-    FairsDashboardComponent
+    FairsDashboardComponent,
+    UserDetailsComponent,
+    UserFormComponent,
+    GetConfirmComponent,
+    BackBtnComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

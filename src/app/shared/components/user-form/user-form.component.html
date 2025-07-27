@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+
+        <app-back-btn></app-back-btn>
+
+        <h3>
+           {{isInEditMode ? 'Update User' :  'Add User'}}
+        </h3>
+
+        <div class="card">
+            <!-- #userForm="ngForm" -->
+    <div class="card-body">
+        <form [formGroup]="userForm" (ngSubmit)="onAddUser()">
+            <div class="form-group">
+                <label for="userName">User Name</label>
+                <input type="text" id="userName" formControlName="userName" name="userName" class="form-control">
+            </div>
+             <div class="form-group">
+                <label for="userRole">User Role</label>
+                <select type="text" id="userRole" name="userRole" formControlName="userRole" class="form-control">
+                    <option value="Candidate">Candidate</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+
+            <button class="btn btn-block btn-primary" type="submit" *ngIf="!isInEditMode">
+                Add User
+            </button>
+             <button class="btn btn-block btn-primary" (click)="onUpdateUser()" type="button" *ngIf="isInEditMode">
+                Update User
+            </button>
+        </form>
+    </div>
+</div>
+    </div>
+</div>

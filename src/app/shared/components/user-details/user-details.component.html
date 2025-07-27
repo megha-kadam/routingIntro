@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-6 offset-3">
+        <app-back-btn></app-back-btn>
+        <mat-card>
+            <mat-card-title>
+                <h3>
+                    {{userInfo.userName}}
+                </h3>
+            </mat-card-title>
+            <mat-card-content>
+                <p>
+                    {{userInfo.userRole}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <!-- <button mat-raised-button color="primary"
+                [routerLink]="['/users, userId, 'edit']">Edit</button> -->
+                 <button mat-raised-button color="primary"
+                routerLink="edit">Edit</button>
+                <button mat-raised-button color="warn" (click)="onRemoveUser(userInfo)">Remove</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
