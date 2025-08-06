@@ -1,1 +1,30 @@
-<p>product-dashboard works!</p>
+<button class="btn btn-sm btn-primary mb-3" routerLink="addProduct">Add Product</button>
+
+
+<div class="row">
+    <div class="col-4">
+
+        <app-back-btn></app-back-btn>
+        <ul class="list-group" *ngIf="productArr.length > 0; else noProduct">
+            <!-- <li class="list-group-item" [routerLink]="['/products', product.pId]"
+            [queryParams]="{canEdit : product.canReturn}"
+            *ngFor="let product of productArr">
+                {{product.productName}} 
+            </li> -->
+
+            <li class="list-group-item" (click)="onNavigate(product)"
+            *ngFor="let product of productArr">
+                {{product.productName}} 
+            </li>
+        </ul>
+
+        <ng-template #noProduct>
+            <p class="alert alert-info">
+                No products added yet!!!
+            </p>
+        </ng-template>
+    </div>
+    <div class="col-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>

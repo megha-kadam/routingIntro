@@ -1,0 +1,32 @@
+<app-back-btn></app-back-btn>
+<div class="row">
+  <div class="col-6 offset-3">
+    <mat-card class="example-card">
+  <mat-card-title-group>
+    <mat-card-title>
+        {{productInfo.productName}}
+    </mat-card-title>
+    <mat-card-subtitle>
+        {{productInfo.pStatus}}
+    </mat-card-subtitle>
+    <img mat-card-sm-image [src]="productInfo.image" >
+  </mat-card-title-group>
+  <mat-card-content>
+    <p>
+        Canreturn : {{productInfo.canReturn}}
+    </p>
+ <p>
+    {{productInfo.productDetails}}
+ </p>
+ <p>
+ Price : {{productInfo.price}}
+ </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <!-- <button color="primary" mat-raised-button routerLink="edit"  queryParamsHandling="preserve">Edit</button> -->
+      <button color="primary" mat-raised-button (click)="onNavigate()" queryParamsHandling="preserve">Edit</button>
+    <button color="warn" mat-raised-button (click)="onRemoveProduct(productInfo)">Remove</button>
+  </mat-card-actions>
+</mat-card>
+  </div>
+</div>

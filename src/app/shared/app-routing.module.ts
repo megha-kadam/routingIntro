@@ -6,6 +6,10 @@ import { ProductDashboardComponent } from "./components/product-dashboard/produc
 import { FairsDashboardComponent } from "./components/fairs-dashboard/fairs-dashboard.component";
 import { UserDetailsComponent } from "./components/user-details/user-details.component";
 import { UserFormComponent } from "./components/user-form/user-form.component";
+import { ProductFormComponent } from "./components/product-form/product-form.component";
+import { ProductDetailsComponent } from "./components/product-details/product-details.component";
+import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
+import { FairsDetailComponent } from "./components/fairs-detail/fairs-detail.component";
 
 const routes : Routes = [
     {
@@ -21,26 +25,85 @@ const routes : Routes = [
     },
     {
         path : 'users',
-        component : UsersComponent
-    },
-     {
-        path : 'users/addUser',
+        component : UsersComponent,
+        children : [
+            {
+        path : 'addUser',
         component : UserFormComponent
     },
-    {
-        path : 'users/:userId',
+            {
+        path : ':userId',
         component : UserDetailsComponent
     },
     {
-        path : 'users/:userId/edit',
+        path : ':userId/edit',
         component : UserFormComponent
     },
+        ]
+    },
+    //  {
+    //     path : 'users/addUser',
+    //     component : UserFormComponent
+    // },
+    // {
+    //     path : 'users/:userId',
+    //     component : UserDetailsComponent
+    // },
+    // {
+    //     path : 'users/:userId/edit',
+    //     component : UserFormComponent
+    // },
      {
         path : 'products',
-        component : ProductDashboardComponent
-    }, {
+        component : ProductDashboardComponent,
+        children : [
+                {
+        path : 'addProduct',
+        component : ProductFormComponent
+    },
+    {
+        path : ':pId',
+        component : ProductDetailsComponent
+    },
+    {
+        path : ':pId/edit',
+        component : ProductFormComponent
+    },
+        ]
+    }, 
+    // {
+    //     path : 'products/addProduct',
+    //     component : ProductFormComponent
+    // },
+    // {
+    //     path : 'products/:pId',
+    //     component : ProductDetailsComponent
+    // },
+    // {
+    //     path : 'products/:pId/edit',
+    //     component : ProductFormComponent
+    // },
+    {
         path : 'fairs',
-        component : FairsDashboardComponent
+        component : FairsDashboardComponent,
+        children : [
+            {
+        path : ':fairId',
+        component : FairsDetailComponent
+    },
+        ]
+    },
+    // {
+    //     path : 'fairs/:fairId',
+    //     component : FairsDetailComponent
+    // },
+    {
+        path : 'page-not-found',
+        component : PageNotFoundComponent
+    },
+    {
+        path : '**',
+        redirectTo : 'page-not-found'
     }
 ]
 

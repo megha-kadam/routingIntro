@@ -1,0 +1,36 @@
+.card-body{
+    padding: 0;
+}
+.fairCard{
+    height: 400px;
+    margin: 0;
+    position: relative;
+    
+
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .fairCard::before{
+        content: '';
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 23%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    }
+
+    .fairTitle{
+        position: absolute;
+        left: 30px;
+        bottom: 30px;
+        color: white;
+    }
+
+    .fairDescription{
+         box-shadow: 0 2px 15px rgba(84, 155, 165, 0.25);
+         padding: 10px;
+    }
+}

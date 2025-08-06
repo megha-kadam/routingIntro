@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Iuser } from '../../models/user.interface';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UuidService } from '../../services/uuid.service';
 import { UserService } from '../../services/users.service';
@@ -14,6 +14,8 @@ export class UserFormComponent implements OnInit {
   isInEditMode : boolean = false;
   userId !: string;
   editUser !: Iuser;
+  userRole !: string;
+  updateBtnFlag : boolean = false;
 
   constructor(
     private _activatedRoute : ActivatedRoute,
@@ -28,11 +30,12 @@ export class UserFormComponent implements OnInit {
     if(this.userForm.valid){
       let userObj = this.userForm.value;
       console.log(userObj);
+     
       
       userObj.userId = this._uuidService.generateUuid();
 
       this._userService.createUser(userObj);
-      this._route.navigate(['users'])
+      this._route.navigate(['users']);
       this.userForm.reset();
     }
   }
@@ -40,6 +43,28 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
     this.createUserForm()
    this.getUserParams();
+
+  // this.userRole = this._activatedRoute.snapshot.queryParams['userRole'];
+  // console.log(this.userRole);
+  
+
+  //  if(this.userRole && this.userRole === "Candidate"){
+  //   this.userForm.disable();
+  //   this.updateBtnFlag = true;
+  //  }
+
+  this._activatedRoute.queryParams
+  .subscribe((param : Params) => {
+    console.log(param);
+
+    this.userRole = param['userRole'];
+
+    if(this.userRole && this.userRole === "Candidate"){
+      this.userForm.disable();
+      this.updateBtnFlag = true;
+    }
+    
+  })
   }
 
   createUserForm(){
@@ -59,8 +84,7 @@ export class UserFormComponent implements OnInit {
    this._userService.updateUsers(updateObj);
    this.userForm.reset();
    this._route.navigate(['users'])
-   }
-    
+   }  
   }
 
 

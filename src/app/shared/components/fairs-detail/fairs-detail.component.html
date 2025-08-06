@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+        <figure class="fairCard">
+            <img [src]="fairInfo.bannerUrl" class="fairImg mb-3" [title]="fairInfo.fairName" [alt]="fairInfo.fairName">
+       
+            <figcaption>
+               <div class="fairTitle">
+                 <h2>
+                    {{fairInfo.fairName}}
+                </h2>
+
+                <h4>
+                  Start Date : {{fairInfo.startDate}}
+                </h4>
+                <h4>
+                    End Date : {{fairInfo.endDate}}
+                </h4>
+               </div>
+
+
+               <div class="fairDescription">
+                <p [innerHTML]="fairInfo.candidateDescription"></p>
+
+                <P [innerHTML]="fairInfo.schoolDescription"></P>
+               </div>
+            </figcaption>
+        </figure>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+.fairsCard{
+    cursor: pointer;
+
+    &.active{
+        background-color: orchid;
+        color: #fff;
+    }
+}

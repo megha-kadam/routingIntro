@@ -15,8 +15,13 @@
             <mat-card-actions>
                 <!-- <button mat-raised-button color="primary"
                 [routerLink]="['/users, userId, 'edit']">Edit</button> -->
+
+                 <!-- <button mat-raised-button color="primary"
+                routerLink="edit"
+                queryParamsHandling="preserve">Edit</button> -->
+
                  <button mat-raised-button color="primary"
-                routerLink="edit">Edit</button>
+                (click)="onNavigate()">Edit</button>
                 <button mat-raised-button color="warn" (click)="onRemoveUser(userInfo)">Remove</button>
             </mat-card-actions>
         </mat-card>

@@ -16,6 +16,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { GetConfirmComponent } from './shared/components/get-confirm/get-confirm.component';
 import { BackBtnComponent } from './shared/components/back-btn/back-btn.component';
+import { ProductDetailsComponent } from './shared/components/product-details/product-details.component';
+import { ProductFormComponent } from './shared/components/product-form/product-form.component';
+import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { FairsDetailComponent } from './shared/components/fairs-detail/fairs-detail.component';
+import { FairCardComponent } from './shared/components/fair-card/fair-card.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { BackBtnComponent } from './shared/components/back-btn/back-btn.componen
     UserDetailsComponent,
     UserFormComponent,
     GetConfirmComponent,
-    BackBtnComponent
+    BackBtnComponent,
+    ProductDetailsComponent,
+    ProductFormComponent,
+    PageNotFoundComponent,
+    FairsDetailComponent,
+    FairCardComponent
   ],
   imports: [
     BrowserModule,

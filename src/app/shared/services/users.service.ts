@@ -6,48 +6,51 @@ import { Observable, of } from "rxjs";
     providedIn : 'root'
 })
 export class UserService{
-    usersArr : Array<Iuser> = [ 
+     usersArrs : Array<Iuser> = [
+    {
+        userName : "Will Smith",
+        userRole : "Candidate",
+        userId : '123'
+    },
+     {
+        userName : "Tom Cruise",
+        userRole : "Admin",
+        userId : '124'
+    },
         {
-            userName : "Jhon",
-            userRole : "Candidate",
-            userId : "123"
-        },
-         {
-            userName : "June",
-            userRole : "Admin",
-            userId : "124"
-        },
-         {
-            userName : "July",
-            userRole : "Candidate",
-            userId : "125"
-        }
-    ]
+        userName : "June Doe",
+        userRole : "Candidate",
+        userId : '125'
+    },
+     {
+        userName : "Emma Watson",
+        userRole : "Super Admin",
+        userId : '126'
+    },
+]
 
     fetchAllUser() : Observable<Iuser[]>{
-        return of(this.usersArr);
-        localStorage.setItem('users', JSON.stringify(this.usersArr));
+        return of(this.usersArrs)
     }
 
     fetchUserDetail(id : string) : Observable<Iuser>{
-      let getUser = this.usersArr.find(user => user.userId === id) as Iuser
+      let getUser = this.usersArrs.find(user => user.userId === id) as Iuser
       return of(getUser);
     }
 
     createUser(user : Iuser){
-        this.usersArr.push(user);
-            localStorage.setItem('users', JSON.stringify(this.usersArr));
+        this.usersArrs.push(user);
     }
 
     updateUsers(user : Iuser){
-        let getIndex = this.usersArr.findIndex(u => u.userId === user.userId);
-        this.usersArr[getIndex] = user
+        let getIndex = this.usersArrs.findIndex(u => u.userId === user.userId);
+        this.usersArrs[getIndex] = user
     }
 
     removeUser(user : Iuser){
-        let getIndex = this.usersArr.findIndex(u => u.userId === user.userId);
-        this.usersArr.splice(getIndex, 1);
-            localStorage.setItem('users', JSON.stringify(this.usersArr));
+        let getIndex = this.usersArrs.findIndex(u => u.userId === user.userId);
+        this.usersArrs.splice(getIndex, 1);
+            
     }
 }
 

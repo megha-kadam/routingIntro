@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-6 offset-3">
+        <app-back-btn></app-back-btn>
+
+        <h3>
+            {{isInEditMode? "Update Product" : "Add Product"}}
+        </h3>
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="productForm" (ngSubmit)="onProductAdd()">
+                    <mat-form-field appearence="fill">
+                        <mat-label>Product Name</mat-label>
+                        <input formControlName="productName" matInput>
+                    </mat-form-field>
+
+                     <mat-form-field appearence="fill">
+                        <mat-label>Price</mat-label>
+                        <input formControlName="price" matInput>
+                    </mat-form-field> 
+                    
+                    <mat-form-field appearence="fill">
+                        <mat-label>Image URL</mat-label>
+                        <input formControlName="image" matInput>
+                    </mat-form-field>
+
+                     <mat-form-field appearence="fill">
+                        <mat-label>Product Details</mat-label>
+                        <input formControlName="productDetails" matInput>
+                    </mat-form-field>
+
+                    <mat-form-field appearence="fill">
+                        <mat-label>Product Status</mat-label>
+                        <mat-select formControlName="pStatus">
+                            <mat-option value="In-progress">In-progress</mat-option>
+                            <mat-option value="Dispatch">Dispatch</mat-option>
+                            <mat-option value="Delivered">Delivered</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearence="fill">
+                        <mat-label>CanReturn</mat-label>
+                        <mat-select formControlName="canReturn">
+                            <mat-option [value]="1">Yes</mat-option>
+                            <mat-option [value]="0">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <button class="btn btn-block btn-primary"
+                   [type]="isInEditMode? 'button' : 'submit'"
+                   [disabled]="updateBtnFlag"
+                   (click)="onUpdateProduct()">
+                        {{isInEditMode? "Update Product" : "Add Product"}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

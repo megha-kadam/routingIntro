@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
+import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 import { UserService } from '../../services/users.service';
 import { Iuser } from '../../models/user.interface';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -26,16 +26,45 @@ export class UserDetailsComponent implements OnInit {
    this.getUser();
   }
 
+  onNavigate(){
+    this._routeNavigate.navigate(['edit'], {
+      relativeTo : this._routes,
+      queryParamsHandling : 'preserve'
+    
+    })
+  }
 
   getUser(){
-    this.userId = this._routes.snapshot.params['userId'];
-    if(this.userId){
+    // this.userId = this._routes.snapshot.params['userId'];
+    // if(this.userId){
+    //   this._userService.fetchUserDetail(this.userId)
+    //   .subscribe({
+    //     next : data => this.userInfo = data,
+    //     error : err => console.log("something went wrong!!")
+    //   })
+    // }
+
+
+    this._routes.params
+    .subscribe((param : Params) => {
+      console.log(param);
+      
+      this.userId = param['userId'];
+      console.log(this.userId);
+   
+       if(this.userId){
       this._userService.fetchUserDetail(this.userId)
       .subscribe({
-        next : data => this.userInfo = data,
-        error : err => console.log("something went wrong!!")
+        next : data => {
+          this.userInfo = data
+        },
+        error : err => console.log("error")
+        
       })
     }
+    })
+
+   
   }
 
   onRemoveUser(user : Iuser){

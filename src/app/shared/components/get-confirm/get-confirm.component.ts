@@ -10,7 +10,7 @@ export class GetConfirmComponent implements OnInit {
   msg !: string
 
   constructor(private _matdialog : MatDialogRef<GetConfirmComponent>,
-             
+            //  @Inject(MAT_DIALOG_DATA) 
   ) { }
 
   onClose(flag : boolean){
